@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>zuoye</title>
+	<meta charset="utf-8">
+	<script src="JS/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript">
+   window.onload= function subMenu() {
+                var liNodes = document.getElementsByTagName("li");
+                        
+                for (var i=0; i<liNodes.length; ++i) {                      
+                liNodes[i].onmouseover = function() {
+                      //鼠标经过时设置类名
+                        this.className = "sfhover";
+                    } //onmouseover()                           
+                liNodes[i].onmouseout = function() {
+                        //鼠标移开时取消类名
+                        this.className = "";
+                    } //onmouseout                  
+                }   //for       
+            } //subMenu()
+             function tname(){  
+    var name=document.getElementById("userName").value;
+    var nullname=document.getElementById("nullname");
+    if(name==null||name=="")
+    {  
+    nullname.innerHTML="用户名不能为空！";  
+    return false;  
+    }
+    else  if(name.length<2||name.length>=20){  
+    nullname.innerHTML="用户名长度为2--20个字符长度！";  
+    return false;  
+    }else{  
+    nullname.innerHTML="";
+    return true;
+    }     
+    }  
+    function ppwd(){  
+    var pwd=document.getElementById("password").value;  
+    var nullpwd=document.getElementById("nullpwd");  
+    if(pwd==null||pwd==""){  
+    nullpwd.innerHTML="密码不能为空！";  
+    return false;  
+    }
+    else
+    {  
+    nullpwd.innerHTML="";  
+    return true;  
+    }      
+    }  
+   function ttpwd(){  
+       var pwd=document.getElementById("password").value;  
+       var tpwd=document.getElementById("tpwd").value;  
+       var nulltpwd=document.getElementById("nulltpwd");  
+       if(tpwd==null||tpwd=="")
+       {  
+       nulltpwd.innerHTML="确认密码不能为空！！！";
+       return false;  
+       }
+       else if(tpwd!=pwd)
+       {  
+       nulltpwd.innerHTML="两次密码输入不一致";  
+       return false;
+       }
+       else
+       {  
+       nulltpwd.innerHTML="";  
+       return true;  
+       }        
+       }   
+    function reg(){  
+    if(tname()&&ppwd()&&ttpwd())
+    {  
+    document.forms[0].submit();  
+    return true;  
+    }
+    else
+    {  
+    return false;  
+    }  
+    }  
+    function DivFlying() {
+  var div = document.getElementById("divFly");
+  if (!div) {
+ return;
+  }
+  var intX = window.event.clientX;
+  var intY = window.event.clientY;
+  div.style.left = intX + "px";
+  div.style.top = intY + "px";
+}
+document.onmousemove = DivFlying;
+	</script>
+	<style type="text/css">
+	 * {
+                margin: 0;
+                padding: 0;                 
+                font-family: arial, 微软雅黑, serif;
+                font-size:16px;
+             }  
+            #nav {
+                margin-top: 20px;
+                margin-left: 360px;
+                line-height: 30px; 
+                list-style-type: none; 
+                background:yellow;
+            }                   
+            #nav a:link {
+                display: block; /*改变为块级元素*/
+                width: 80px;
+                text-align: center;
+                color: orange; 
+                text-decoration: none;
+            }                   
+            #nav a:hover {
+                color: #FFF;
+                text-decoration: underline;
+                font-weight: bold;
+                background:orange;
+            }
+            #nav li {
+                float: left; 
+                width: 80px; 
+                background: #F0F0F0;
+            }                   
+            #nav li ul {
+                line-height: 27px;
+                list-style-type: none;
+                text-align: left;                       
+                width:180px;                       
+                display: none;
+            }
+            #nav li ul li{
+                float: left; 
+                width:100px;                       
+            }
+            #nav li ul a:link {
+                display: block; 
+                width:90px;
+                text-align: left;
+                padding-left: 24px;
+                color: #666;
+            }              
+            #nav li ul a:hover {
+                color: #F3F3F3;
+                text-decoration: underline;
+                font-weight: normal;
+                background: #C00;
+            }
+            #nav li.sfhover ul {        
+                display: block;
+                position: absolute;
+            }
+            #r{
+                position: absolute;
+                left:50px;
+            }   
+            #w{
+                position: absolute;
+                left:50px;
+                top:90px;
+            }   
+             .body{
+                text-align:center;
+            }
+            li,ul{list-style:none;margin:0px;padding:0px;}
+           
+             .body{
+                text-align:center;
+                background-color:#CCFFFF;
+            }
+            .sou{
+            	position:relative;
+            	right:-60px;
+            }
+            .so{
+            	position: relative;
+            	right:-55px;
+
+            }
+            #denglu{
+            	position: absolute;
+            	left:500px;
+            	margin-top:85px;
+            	background-color: orange;
+
+            }
+          .lu{
+          	margin-left:-50px;
+          }
+          #dress{
+          	position: absolute;
+          	top:508px;
+          	left:550px;
+          	   }
+         span{
+         	position: absolute;
+         	left:-200px;
+         	width:1000px;
+         	margin-top:45px;
+         }
+         #beijing{
+         	border:1px solid black;
+         	background-color:gray;
+         	width:1000px;
+         	height:100px;
+         	position: absolute;
+         	top:500px;
+         	left:200px;
+         }
+	</style>
+</head>
+<body>
+<div id="divFly" style="position:absolute;">
+<img src="images/star4.gif"/>
+</div>
+<div id="banner"><img src="images/banner.jpg" width="1358px" height="150px"></div>
+<div>当前位置：首页 >>个人中心</div>
+<ul id="nav">
+        <li><a href="#">首页</a>
+            <ul>
+                <li ><a href="#">首页介绍</a></li>
+                <li ><a href="#">学历介绍</a></li>
+                <li ><a href="#">成长历程</a></li>
+            </ul>
+        </li>
+        <li><a href="#">相册</a>
+            <ul>
+                <li ><a href="#">个人相册</a></li>
+                <li ><a href="#">最新图集</a></li>
+                <li ><a href="#">动感瞬间</a></li>
+            </ul>
+        </li>
+        <li ><a href="#">日志</a>
+            <ul>
+                <li><a href="#">技术精粹</a></li>
+                <li ><a href="#">生活点滴</a></li>
+                <li ><a href="#">精彩转载</a></li>
+            </ul>
+        </li>
+        <li ><a href="#">成长记录</a>
+            <ul>
+                <li ><a href="#">小学记录</a></li>
+                <li ><a href="#">中学记录</a></li>
+                <li ><a href="#">大学记录</a></li>
+            </ul>
+        </li>
+        <li><a href="#">好友</a>
+            <ul>
+                <li><a href="#">好友介绍</a></li>
+                <li><a href="#">学历介绍</a></li>
+                <li><a href="#">工作历程</a></li>
+            </ul>
+        </li>
+        <li><a href="#">个人心得</a>
+            <ul>
+                <li><a href="#">成长岁月</a></li>
+                <li><a href="#">经验之谈</a></li>
+                <li><a href="#">意见回馈</a></li>
+            </ul>
+        </li>
+        <li><a href="#">个人资料</a>
+            <ul>
+                <li><a href="#">资料介绍</a></li>
+                <li><a href="#">学历介绍</a></li>
+                <li><a href="#">工作历程</a></li>
+            </ul>
+        </li>
+    </ul>
+<input type="text" value="搜索" width="80px" height="35px" class="sou">
+<input type="submit" value="搜索" class="so">
+<div id="denglu">个人中心
+<form action="regUser" method="post">  
+<table>  
+<tr>  
+<td>用户名</td>  
+<td><input type="text" name="user.userName" class="w" id="userName" onblur="tname()"/></td>  
+<td><div id="nullname"></div></td>
+</tr>
+<tr>  
+<td>密码</td>  
+<td><input type="password" name="user.password" class="w" id="password" onblur="ppwd()"/></td>  
+<td><div id="nullpwd"></div></td>  
+</tr>
+<tr>
+<td>确认密码</td>  
+<td><input type="password" name="tpwd" class="w" id="tpwd" onblur="ttpwd()"/></td>  
+<td ><div id="nulltpwd"></div></td>  
+</tr>  
+<tr>  
+<td></td>  
+<td><input type="button" value="注册" onclick="reg()"/>
+<td><input type="button" value="登录" onclick="reg()" class="lu"></td>
+<td></td>  
+</tr>
+</table>  
+</form>
+</fieldset>
+</div>
+<div id="beijing">
+</div>
+<div id="dress">河北师范大学****软件学院<br/>
+<span>Copyright © 2008－2013 http://www.zhengzhong.net.cn All Rights Reserved 网站备案：冀ICP备0600号</span>
+</div>
+</div>
+</body>
+</html>
